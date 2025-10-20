@@ -1,6 +1,15 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+@import "./utils.css";
+
+header {
+    padding: 0.7rem 1.3rem;
+}
+
+.header-logo {
+    text-decoration: none;
+    gap: 5px;
+}
+
+.header-logo img {
+    width: 2rem;
 }
 
