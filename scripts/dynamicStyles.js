@@ -1,7 +1,8 @@
-export const mainInpAnim = (mainInp, addBtn) => {
+export const mainInpAnim = (mainInp, detailsInp, addBtn) => {
   // Make the add button visible once the main input is focused
   mainInp.addEventListener("focus", () => {
     mainInp.parentElement.classList.add("expanded-main-inp-container");
+    detailsInp.parentElement.style.height = "20px";
     addBtn.style.height = "20px";
   });
 
@@ -9,9 +10,10 @@ export const mainInpAnim = (mainInp, addBtn) => {
   document.body.addEventListener("click", (e) => {
     if (
       e.target != mainInp.parentElement &&
-      e.target.parentElement != mainInp.parentElement
+      !e.target.closest("#main-inp-container")
     ) {
       addBtn.style.height = "0";
+      detailsInp.parentElement.style.height = "0";
       mainInp.parentElement.classList.remove("expanded-main-inp-container");
     }
   });

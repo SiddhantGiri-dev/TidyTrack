@@ -5,7 +5,10 @@
     --bg: #ebebeb;
     --color: black;
     --color-pop: white;
-    --color-primary: rgb(0, 195, 255);
+    --color-sub-text: rgb(89, 89, 89);
+    --color-primary: rgb(0, 60, 255);
+    --color-opt: rgb(0, 255, 170);
+    --color-success: rgb(18, 184, 18);
 
     /* Fonts */
     --font-normal: "Poppins", sans-serif;
@@ -47,6 +50,20 @@ h6 {
     font-weight: 600;
 }
 
+
+/* Margins */
+.m-auto {
+    margin: auto;
+}
+
+/* Buttons */
+.button-round {
+    width: fit-content;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
 
 /* Flexbox */
 .flex {

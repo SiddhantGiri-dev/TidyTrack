@@ -1,0 +1,81 @@
+.task-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.task {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px;
+  background-color: var(--color-pop);
+  border-radius: 20px;
+  position: relative;
+  max-width: 350px;
+  transition: 0.3s all;
+  cursor: grab;
+}
+
+.task:hover {
+    transform: scale(1.05);
+}
+
+.task input[type="checkbox"] {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--color-sub-text);
+  border-radius: 50%;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.task input[type="checkbox"]:checked {
+  background-color: var(--color-success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task input[type="checkbox"]:checked::after {
+  content: "✔";
+  font-size: 1.1rem;
+  display: block;
+  transform: rotate(10deg);
+  color: white;
+}
+
+.task h3,
+.task p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 90%;
+}
+
+.task h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.task p {
+  font-size: 0.8rem;
+}
+
+.task button {
+    background: linear-gradient(30deg, var(--color-primary), var(--color-opt));
+    color: var(--color-pop);
+    transition: 0.3s all;
+}
+
+.task button:hover {
+    transform: scale(1.05);
+}
+
+.task button:active {
+    transform: scale(0.95);
+}

@@ -1,25 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
     <title>To-do list app | TidyTrack</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="flex">
-        <a href="/" class="header-logo items-center flex">
-            <img src="./assets/images/logo.png" alt="">
-            <span class="font-em">TidyTrack</span>
-        </a>
+      <a href="/" class="header-logo items-center flex">
+        <img src="./assets/images/logo.png" alt="" />
+        <span class="font-em">TidyTrack</span>
+      </a>
     </header>
-    <main class="flex justify-center items-center">
-        <label id="main-inp-container" for="main-input" class="flex flex-col">
-            <input type="text" id="main-input" name="main-input" placeholder="Add a new task">
-            <button class="flex items-center" id="add-task-btn"><span>+</span> Add</button>
-        </label>
-        <div id="tasks-container"></div>
+    <main class="flex flex-col items-center">
+      <label id="main-inp-container" for="main-input" class="flex flex-col">
+        <input
+          type="text"
+          id="main-input"
+          name="main-input"
+          placeholder="Add a new task"
+        />
+        <div id="details-inp-container" class="flex items-center">
+          <label for="details-input">&#128462;</label>
+          <input
+            type="text"
+            id="details-input"
+            name="details-input"
+            placeholder="Details"
+          />
+        </div>
+        <button class="flex items-center" id="add-task-btn">
+          <span>+</span> Add
+        </button>
+      </label>
+      <div id="tasks-container" class="task-list">
+        <div class="task">
+          <input type="checkbox" title="Mark as done" />
+          <h3>This is a task</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+            laboriosam voluptatum, adipisci nobis officia eveniet totam corporis
+            quas sint asperiores provident similique dignissimos amet,
+            temporibus placeat eum quidem expedita et nihil recusandae harum.
+            Nisi.
+          </p>
+          <button class="button-round">&#128462; Details</button>
+        </div>
+      </div>
     </main>
     <script type="module" src="./scripts/index.js"></script>
-</body>
+  </body>
 </html>
