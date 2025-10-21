@@ -1,15 +1,70 @@
 @import "./utils.css";
 
 header {
-    padding: 0.7rem 1.3rem;
+  padding: 0.7rem 1.3rem;
+  min-height: 50px;
+  height: 10vh;
 }
 
 .header-logo {
-    text-decoration: none;
-    gap: 5px;
+  text-decoration: none;
+  gap: 5px;
 }
 
 .header-logo img {
-    width: 2rem;
+  width: 2rem;
 }
 
+main {
+  height: 90vh;
+  padding: 30px;
+}
+
+#main-inp-container {
+  background-color: var(--color-pop);
+  width: 70vw;
+  border-radius: 20px;
+  max-width: 650px;
+  cursor: text;
+  padding: 15px 20px;
+}
+
+.expanded-main-inp-container {
+    display: grid;
+    grid-template-areas: "inp inp inp"
+    "space space btn";
+    justify-items: end;
+    align-items: center;
+    gap: 10px 0;
+}
+
+#main-input {
+  border: none;
+  outline: none;
+  justify-self: start;
+  width: 100%;
+  grid-area: inp;
+}
+
+#add-task-btn {
+  grid-area: btn;
+  background-color: transparent;
+  border: none;
+  align-self: flex-end;
+  width: fit-content;
+  cursor: pointer;
+  gap: 5px;
+  height: 0;
+  overflow-y: hidden;
+  transition: 0.3s all;
+}
+
+#add-task-btn:hover,
+#add-task-btn:hover span {
+    color: var(--color-primary);
+}
+
+#add-task-btn span {
+  font-size: 1.5rem;
+  font-weight: 300;
+}

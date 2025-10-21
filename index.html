@@ -13,13 +13,13 @@
             <span class="font-em">TidyTrack</span>
         </a>
     </header>
-    <main>
-        <div id="main-inp-container">
+    <main class="flex justify-center items-center">
+        <label id="main-inp-container" for="main-input" class="flex flex-col">
             <input type="text" id="main-input" name="main-input" placeholder="Add a new task">
-            <button class="">Add</button>
-        </div>
+            <button class="flex items-center" id="add-task-btn"><span>+</span> Add</button>
+        </label>
         <div id="tasks-container"></div>
     </main>
-    <script src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>

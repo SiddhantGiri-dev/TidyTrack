@@ -4,6 +4,8 @@
     /* Colors */
     --bg: #ebebeb;
     --color: black;
+    --color-pop: white;
+    --color-primary: rgb(0, 195, 255);
 
     /* Fonts */
     --font-normal: "Poppins", sans-serif;
@@ -39,15 +41,26 @@ h6 {
 
 /* Utility classes */
 
+/* Font */
 .font-em {
     font-family: var(--font-em);
     font-weight: 600;
 }
 
+
+/* Flexbox */
 .flex {
     display: flex;
 }
 
+.flex-col {
+    flex-direction: column;
+}
+
 .items-center {
     align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
 }
