@@ -9,6 +9,8 @@
     --color-primary: rgb(0, 60, 255);
     --color-opt: rgb(0, 255, 170);
     --color-success: rgb(18, 184, 18);
+    --color-danger: rgb(255, 41, 41);
+    --color-shadow: rgba(0, 0, 0, 0.276);
 
     /* Fonts */
     --font-normal: "Poppins", sans-serif;

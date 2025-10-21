@@ -18,7 +18,8 @@
 }
 
 .task:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px 0 var(--color-shadow);
 }
 
 .task input[type="checkbox"] {
@@ -54,7 +55,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  width: 90%;
+  width: 85%;
 }
 
 .task h3 {
@@ -66,16 +67,30 @@
   font-size: 0.8rem;
 }
 
-.task button {
-    background: linear-gradient(30deg, var(--color-primary), var(--color-opt));
-    color: var(--color-pop);
-    transition: 0.3s all;
+.task .btns-container {
+  display: flex;
+  gap: 7px;
+  margin-top: 7px;
 }
 
-.task button:hover {
-    transform: scale(1.05);
+.task .btn-details {
+  background: linear-gradient(30deg, var(--color-primary), var(--color-opt));
+  color: var(--color-pop);
+  transition: 0.3s all;
 }
 
-.task button:active {
-    transform: scale(0.95);
+.task .btn-delete {
+  background-color: var(--color-danger);
+  color: var(--color-pop);
+  transition: 0.3s all;
+}
+
+.task .btn-details:hover,
+.task .btn-delete:hover {
+  transform: scale(1.05);
+}
+
+.task .btn-details:active,
+.task .btn-delete:active {
+  transform: scale(0.95);
 }
