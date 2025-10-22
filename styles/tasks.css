@@ -98,3 +98,25 @@
   transform: scale(0.95);
 }
 
+@media only screen and (max-width: 750px) {
+  .task-list {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 280px));
+    justify-items: center;
+  }
+
+  .task {
+    max-width: 250px;
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  .task-list {
+    justify-items: center;
+    grid-template-columns: 1fr;
+  }
+  
+  .task {
+    max-width: none;
+    width: 80vw;
+  }
+}
