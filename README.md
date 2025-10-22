@@ -6,7 +6,7 @@
 
 1. **How to customize checkboxes:**
 
-````css
+```css
 .task input[type="checkbox"] {
   width: 25px;
   height: 25px;
@@ -39,4 +39,4 @@
 .grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
  }
-````
+```
