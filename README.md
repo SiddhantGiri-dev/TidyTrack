@@ -6,7 +6,7 @@
 
 1. **How to customize checkboxes:**
 
-<pre> ```css
+````css
 .task input[type="checkbox"] {
   width: 25px;
   height: 25px;
@@ -30,13 +30,12 @@
   display: block;
   transform: rotate(10deg);
   color: white;
-} ``` </pre>
+} ```
 
 2. Creating responsive grids:
 
-<pre> ```css
+```css
 .grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
- } ``` </pre>
-
- 
+ } ```
+````
