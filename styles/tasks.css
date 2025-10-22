@@ -1,7 +1,9 @@
 .task-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
+  justify-content: center;
+  align-content: center;
+  gap: 20px;
 }
 
 .task {
@@ -13,6 +15,7 @@
   border-radius: 20px;
   position: relative;
   max-width: 350px;
+  min-width: 280px;
   transition: 0.3s all;
   cursor: grab;
 }
@@ -94,3 +97,4 @@
 .task .btn-delete:active {
   transform: scale(0.95);
 }
+
