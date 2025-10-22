@@ -30,12 +30,13 @@
   display: block;
   transform: rotate(10deg);
   color: white;
-} ```
+}
+```
 
 2. Creating responsive grids:
 
 ```css
 .grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
- } ```
+ }
 ````
