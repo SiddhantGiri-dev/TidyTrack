@@ -53,6 +53,11 @@ h6 {
     font-weight: 600;
 }
 
+/* Opacity */
+.opacity-0 {
+    opacity: 0;
+}
+
 
 /* Margins */
 .m-auto {

@@ -1,9 +1,8 @@
 "use strict";
 
 // **Modules**
-import { mainInpAnim } from "./dynamicStyles.js";
+import { mainInpAnim, playfulPop } from "./dynamicStyles.js";
 import { Todo } from "./Todo.js";
-
 
 // **DOM elements**
 const mainInp = document.getElementById("main-input");
@@ -16,7 +15,7 @@ const detailsInp = document.getElementById("details-input");
 mainInpAnim(mainInp, detailsInp, addBtn);
 
 // rendering the todos
-Todo.render(tasksContainer);
+Todo.renderAll(tasksContainer);
 
 
 // **event handlers**
@@ -25,10 +24,12 @@ const insertTodo = () => {
     const details = detailsInp.value.trim();
 
     if (title) {
-        new Todo(title, details, tasksContainer);
+        const newTodo = new Todo(title, details, tasksContainer);
 
-        // rendering the todo:
-        Todo.render(tasksContainer);
+        // rendering the todo with a pop sound:
+        playfulPop(() => {
+            Todo.renderOne(newTodo.todoData, tasksContainer, 0);
+        });
 
         // clearing the input fields:
         mainInp.value = "";

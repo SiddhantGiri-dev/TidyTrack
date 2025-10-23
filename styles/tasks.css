@@ -25,6 +25,25 @@
   box-shadow: 0 0 10px 0 var(--color-shadow);
 }
 
+.task-animate {
+  animation-name: task-pop;
+  animation-iteration-count: 1;
+  animation-duration: 400ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes task-pop {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .task input[type="checkbox"] {
   position: absolute;
   right: 20px;
@@ -114,7 +133,7 @@
     justify-items: center;
     grid-template-columns: 1fr;
   }
-  
+
   .task {
     max-width: none;
     width: 80vw;

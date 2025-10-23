@@ -28,6 +28,33 @@ main {
   max-width: 650px;
   cursor: text;
   padding: 15px 20px;
+  animation-name: top-to-bottom;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes top-to-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bottom-to-top {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .expanded-main-inp-container {
@@ -110,8 +137,9 @@ main {
   #main-inp-container {
     order: 1;
     position: sticky;
-    bottom: 10px;
-    z-index: 10;
+    bottom: 20px;
+    z-index: 1;
     box-shadow: 2px 2px 10px var(--color-shadow);
+    animation-name: bottom-to-top;
   }
 }

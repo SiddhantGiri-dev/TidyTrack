@@ -18,3 +18,11 @@ export const mainInpAnim = (mainInp, detailsInp, addBtn) => {
     }
   });
 };
+
+export const playfulPop = (callback) => {
+  new Audio("/assets/sounds/playful-pop.mp3").play();
+
+  if (callback) {
+    callback();
+  }
+};
