@@ -1,8 +1,9 @@
 "use strict";
 
 // **Modules**
-import { mainInpAnim, playfulPop } from "./dynamicStyles.js";
 import { Todo } from "./Todo.js";
+import { mainInpAnim } from "./dynamicStyles.js";
+import { playfulPop } from "./soundEffects.js";
 
 // **DOM elements**
 const mainInp = document.getElementById("main-input");
