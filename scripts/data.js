@@ -18,20 +18,19 @@ if (todos) {
 
 // **operations**
 export const addTodo = (todo) => {
-  todos.push({
-    ...todo.todoData,
-    index: todos.length == 0 ? 0 : todos.length - 1,
-  });
+  todos.push(todo.todoData);
 
   save();
 
-  return todos.length - 1;
+  return todos;
 };
 
 export const deleteTodo = (index) => {
   todos.splice(index, 1);
 
   save();
+
+  return todos;
 };
 
 export default todos;

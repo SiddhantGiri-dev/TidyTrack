@@ -18,3 +18,18 @@ export const mainInpAnim = (mainInp, detailsInp, addBtn) => {
     }
   });
 };
+
+export const animateTodo = (todoElement, delay) => {
+  todoElement.classList.add("opacity-0"); // keeping it invisible initially
+
+  setTimeout(() => {
+    todoElement.classList.add("task-animate"); // actually shows the task
+
+    // Removing the animation after it has played out so that transitions work on the element
+    setTimeout(() => {
+      todoElement.classList.remove("opacity-0"); // Ensuring to keep the task element visible
+
+      todoElement.classList.remove("task-animate");
+    }, 400);
+  }, delay);
+};
