@@ -1,3 +1,57 @@
+import previousTodos, { todosChange } from "./data.js";
+
+const mainInpContainer = document.getElementById("main-inp-container");
+const tasksContainer = document.getElementById("tasks-container");
+const mainElement = document.getElementsByTagName("main")[0];
+
+// Main styles selector function
+function setupStyling(todosLength) {
+  if (todosLength > 0) {
+    // If, there are previously added tasks
+
+    Array.from(document.getElementsByClassName("zero-todos-only")).forEach(
+      (element) => {
+        element.classList.add("hidden");
+      }
+    );
+
+    // <main>
+    mainElement.classList.add("non-zero-tasks-main");
+
+    // tasks container
+    tasksContainer.classList.add("non-zero-tasks-container");
+
+    // main input container
+    mainInpContainer.classList.add("non-zero-tasks-main-inp-container");
+  } else {
+    // If, there are no tasks added previously
+
+    Array.from(document.getElementsByClassName("zero-todos-only")).forEach(
+      (element) => {
+        element.classList.remove("hidden");
+      }
+    );
+
+    // <main>
+    mainElement.classList.remove("non-zero-tasks-main");
+
+    // tasksContainer
+    tasksContainer.classList.remove("non-zero-tasks-container");
+
+    // main input container
+    mainInpContainer.classList.remove("non-zero-tasks-main-inp-container");
+  }
+}
+
+// calling the main styles selector every time the todos change
+todosChange.addEventListener("todosChange", (e) => {
+  setupStyling(e.details.length);
+});
+
+// calling the main styles selector function once initially
+setupStyling(previousTodos.length);
+
+// main input animation funciton
 export const mainInpAnim = (mainInp, detailsInp, addBtn) => {
   // Make the add button visible once the main input is focused
   mainInp.addEventListener("focus", () => {

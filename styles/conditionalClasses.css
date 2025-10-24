@@ -1,0 +1,25 @@
+.non-zero-tasks-main {
+  transition: 0.5s all;
+  justify-content: flex-start;
+}
+
+.non-zero-tasks-container {
+}
+
+.non-zero-tasks-main-inp-container {
+}
+
+@media only screen and (max-width: 610px) {
+  .non-zero-tasks-main-inp-container {
+    order: 1;
+    position: fixed;
+    bottom: 20px;
+    z-index: 1;
+    box-shadow: 2px 2px 10px var(--color-shadow);
+    animation-name: bottom-to-top;
+  }
+
+  .non-zero-tasks-container {
+    padding-bottom: 100px !important;
+  }
+}

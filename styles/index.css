@@ -17,8 +17,18 @@ header {
 }
 
 main {
-  height: 90vh;
+  height: 80vh;
   margin: 10px;
+  justify-content: center;
+}
+
+main h1 {
+  margin-bottom: 20px;
+  text-shadow: 2px 2px var(--color-shadow);
+
+  animation-name: bottom-to-top;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
 }
 
 #main-inp-container {
@@ -38,7 +48,7 @@ main {
     opacity: 0;
     transform: translateY(-50%);
   }
-  
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -50,7 +60,7 @@ main {
     opacity: 0;
     transform: translateY(50%);
   }
-  
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -131,15 +141,4 @@ main {
 #tasks-container {
   width: 100vw;
   padding: 25px 15px;
-}
-
-@media only screen and (max-width: 610px) {
-  #main-inp-container {
-    order: 1;
-    position: sticky;
-    bottom: 20px;
-    z-index: 1;
-    box-shadow: 2px 2px 10px var(--color-shadow);
-    animation-name: bottom-to-top;
-  }
 }
