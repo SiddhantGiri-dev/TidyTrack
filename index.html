@@ -14,9 +14,9 @@
         <span class="font-em">TidyTrack</span>
       </a>
     </header>
-    <main class="flex flex-col items-center">
-      <h1 class="zero-todos-only">What's first on the list?</h1>
-      <label id="main-inp-container" for="main-input" class="flex flex-col">
+    <main class="flex flex-col items-center" data-nonzerotasksclass="non-zero-tasks-main">
+      <h1 data-nonzerotasksclass="hidden">What's first on the list?</h1>
+      <label id="main-inp-container" data-nonzerotasksclass="non-zero-tasks-main-inp-container" for="main-input" class="flex flex-col">
         <input
           type="text"
           id="main-input"
@@ -36,7 +36,7 @@
           <span>+</span> Add
         </button>
       </label>
-      <div id="tasks-container" class="task-list"></div>
+      <div id="tasks-container" data-nonzerotasksclass="non-zero-tasks-container" class="task-list"></div>
     </main>
     <script type="module" src="./scripts/index.js"></script>
   </body>

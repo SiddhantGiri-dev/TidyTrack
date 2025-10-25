@@ -1,45 +1,34 @@
 import previousTodos, { todosChange } from "./data.js";
 
-const mainInpContainer = document.getElementById("main-inp-container");
-const tasksContainer = document.getElementById("tasks-container");
-const mainElement = document.getElementsByTagName("main")[0];
+const nonZeroTasksStyleElements = Array.from(
+  document.querySelectorAll("[data-nonzerotasksclass]")
+);
+const zeroTasksStyleElements = Array.from(
+  document.querySelectorAll("[data-zerotasksclass]")
+);
 
 // Main styles selector function
 function setupStyling(todosLength) {
   if (todosLength > 0) {
     // If, there are previously added tasks
 
-    Array.from(document.getElementsByClassName("zero-todos-only")).forEach(
-      (element) => {
-        element.classList.add("hidden");
-      }
-    );
+    nonZeroTasksStyleElements.forEach((element) => {
+      element.classList.add(element.dataset.nonzerotasksclass);
+    });
 
-    // <main>
-    mainElement.classList.add("non-zero-tasks-main");
-
-    // tasks container
-    tasksContainer.classList.add("non-zero-tasks-container");
-
-    // main input container
-    mainInpContainer.classList.add("non-zero-tasks-main-inp-container");
+    zeroTasksStyleElements.forEach((element) => {
+      element.classList.remove(element.dataset.zerotasksclass);
+    });
   } else {
     // If, there are no tasks added previously
 
-    Array.from(document.getElementsByClassName("zero-todos-only")).forEach(
-      (element) => {
-        element.classList.remove("hidden");
-      }
-    );
+    zeroTasksStyleElements.forEach((element) => {
+      element.classList.add(element.dataset.zerotasksclass);
+    });
 
-    // <main>
-    mainElement.classList.remove("non-zero-tasks-main");
-
-    // tasksContainer
-    tasksContainer.classList.remove("non-zero-tasks-container");
-
-    // main input container
-    mainInpContainer.classList.remove("non-zero-tasks-main-inp-container");
+    nonZeroTasksStyleElements.forEach((element) => {
+      element.classList.remove(element.dataset.nonzerotasksclass);
+    });
   }
 }
 
