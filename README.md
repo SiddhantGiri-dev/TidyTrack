@@ -33,10 +33,12 @@
 }
 ```
 
-2. Creating responsive grids:
+2. **Creating responsive grids:**
 
 ```css
 .grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
- }
+  grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
+}
 ```
+
+3. **Using event bubbling to listen for an event on multiple elements via their parent:** When we're making dynamic UIs, elements are conditionally added and removed from the DOM. Attaching event listeners to each of them is inefficient. Instead, we can attach a single listener to the parent and check _event.target_ to know exactly on what element was the event triggered.
