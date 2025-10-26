@@ -10,7 +10,7 @@
   <body>
     <header class="flex">
       <a href="/" class="header-logo items-center flex">
-        <img src="./assets/images/logo.png" alt="" />
+        <img src="./assets/images/logo.png" alt="TidyTrack" />
         <span class="font-em">TidyTrack</span>
       </a>
     </header>
@@ -47,7 +47,7 @@
       <div class="tabs-container" data-zerotasksclass="hidden">
         <ul class="tabs">
           <li data-tabnum="1" class="tab-active">Tasks</li>
-          <li data-tabnum="2">Completed ✅</li>
+          <li data-tabnum="2">Completed</li>
         </ul>
         <div class="tabs-content">
           <div
@@ -57,11 +57,15 @@
             class="task-list"
           ></div>
           <div
-            class="flex items-center justify-center"
+            class="flex flex-col items-center justify-center"
             id="completed-tasks-container"
             data-tabnum="2"
           >
-            Nothing to show here!
+            <img
+              src="./assets/images/penguin.svg"
+              alt="No tasks completed yet"
+            />
+            <span>Nothing to show here yet!</span>
           </div>
         </div>
       </div>

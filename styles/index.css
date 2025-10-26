@@ -118,3 +118,17 @@ main h1 {
   width: 100vw;
   padding: 25px 15px;
 }
+
+#completed-tasks-container {
+  min-height: 60vh;
+}
+
+#completed-tasks-container span {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+#completed-tasks-container img {
+  width: 100px;
+}
