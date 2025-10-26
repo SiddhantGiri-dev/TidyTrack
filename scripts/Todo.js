@@ -1,5 +1,5 @@
 import allTodos, { addTodo, deleteTodo } from "./data.js";
-import { animateTodo } from "./dynamicStyles.js";
+import { animateTodo } from "./dynamicStyles/dynamicStylesMain.js";
 
 let todos = allTodos;
 

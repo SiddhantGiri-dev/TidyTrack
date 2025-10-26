@@ -2,7 +2,7 @@
 
 // **Modules**
 import { Todo } from "./Todo.js";
-import { mainInpAnim } from "./dynamicStyles.js";
+import { mainInpAnim } from "./dynamicStyles/dynamicStylesMain.js";
 import { playfulPop } from "./soundEffects.js";
 
 // **DOM elements**

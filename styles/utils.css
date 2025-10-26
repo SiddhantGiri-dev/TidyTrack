@@ -44,12 +44,76 @@ h6 {
   font-family: var(--font-heading);
 }
 
+/* Animations */
+@keyframes top-to-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bottom-to-top {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom elements */
+.tabs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.tabs {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+  margin: 15px 0;
+  animation-name: bottom-to-top;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  max-width: 650px;
+  width: 100%;
+}
+
+.tabs li {
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tabs li:hover {
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.tabs .tab-active {
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+}
+
 /* Utility classes */
 
 /* Element removal */
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /* Font */

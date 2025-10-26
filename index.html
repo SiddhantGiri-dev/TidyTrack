@@ -14,9 +14,17 @@
         <span class="font-em">TidyTrack</span>
       </a>
     </header>
-    <main class="flex flex-col items-center" data-nonzerotasksclass="non-zero-tasks-main">
+    <main
+      class="flex flex-col items-center"
+      data-nonzerotasksclass="non-zero-tasks-main"
+    >
       <h1 data-nonzerotasksclass="hidden">What's first on the list?</h1>
-      <label id="main-inp-container" data-nonzerotasksclass="non-zero-tasks-main-inp-container" for="main-input" class="flex flex-col">
+      <label
+        id="main-inp-container"
+        data-nonzerotasksclass="non-zero-tasks-main-inp-container"
+        for="main-input"
+        class="flex flex-col"
+      >
         <input
           type="text"
           id="main-input"
@@ -36,7 +44,27 @@
           <span>+</span> Add
         </button>
       </label>
-      <div id="tasks-container" data-nonzerotasksclass="non-zero-tasks-container" class="task-list"></div>
+      <div class="tabs-container" data-zerotasksclass="hidden">
+        <ul class="tabs">
+          <li data-tabnum="1" class="tab-active">Tasks</li>
+          <li data-tabnum="2">Completed ✅</li>
+        </ul>
+        <div class="tabs-content">
+          <div
+            id="tasks-container"
+            data-tabnum="1"
+            data-nonzerotasksclass="non-zero-tasks-container"
+            class="task-list"
+          ></div>
+          <div
+            class="flex items-center justify-center"
+            id="completed-tasks-container"
+            data-tabnum="2"
+          >
+            Nothing to show here!
+          </div>
+        </div>
+      </div>
     </main>
     <script type="module" src="./scripts/index.js"></script>
   </body>
