@@ -6,6 +6,11 @@
   gap: 20px;
 }
 
+.task-base {
+  transition: 0.3s all;
+  position: relative;
+}
+
 .task {
   display: flex;
   flex-direction: column;
@@ -13,11 +18,13 @@
   padding: 20px;
   background-color: var(--color-pop);
   border-radius: 20px;
-  position: relative;
   max-width: 350px;
   min-width: 280px;
-  transition: 0.3s all;
-  cursor: grab;
+  cursor: pointer;
+}
+
+.task .open-task-only {
+  display: none;
 }
 
 .task:hover {
@@ -44,7 +51,7 @@
   }
 }
 
-.task input[type="checkbox"] {
+.task-base input[type="checkbox"] {
   position: absolute;
   right: 20px;
   top: 20px;
@@ -57,14 +64,14 @@
   cursor: pointer;
 }
 
-.task input[type="checkbox"]:checked {
+.task-base input[type="checkbox"]:checked {
   background-color: var(--color-success);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.task input[type="checkbox"]:checked::after {
+.task-base input[type="checkbox"]:checked::after {
   content: "✔";
   font-size: 1.1rem;
   display: block;
@@ -89,32 +96,119 @@
   font-size: 0.8rem;
 }
 
-.task .btns-container {
+.task-base .btns-container {
   display: flex;
   gap: 7px;
   margin-top: 7px;
 }
 
-.task .btn-details {
+.task-base .btn-details {
   background: linear-gradient(30deg, var(--color-primary), var(--color-opt));
   color: var(--color-pop);
   transition: 0.3s all;
 }
 
-.task .btn-delete {
+.task-base .btn-delete {
   background-color: var(--color-danger);
   color: var(--color-pop);
   transition: 0.3s all;
 }
 
-.task .btn-details:hover,
-.task .btn-delete:hover {
+.task-base .btn-mark-done {
+  background-color: var(--color-pop);
+  color: var(--color-success);
+  transition: 0.3s all;
+  border: 2px solid var(--color-success);
+}
+
+.task-base .btn-mark-done:hover {
+  background-color: var(--color-success);
+  color: var(--color-pop);
+}
+
+.task-base .btn-close-task {
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  padding: 20px;
+  border: none;
+}
+
+.task-base .btn-close-task span {
+  display: block;
+  width: 30px;
+  height: 1px;
+  background-color: var(--color);
+}
+
+.task-base .btn-close-task:hover span {
+  background-color: var(--color-primary);
+}
+
+.task-base .btn-close-task span:first-child {
+  transform: rotateZ(45deg);
+}
+
+.task-base .btn-close-task span:last-child {
+  transform: rotateZ(-45deg);
+}
+
+.task-base .btn-details:hover,
+.task-base .btn-delete:hover {
   transform: scale(1.05);
 }
 
-.task .btn-details:active,
-.task .btn-delete:active {
+.task-base .btn-details:active,
+.task-base .btn-delete:active,
+.task-base .btn-mark-done:active {
   transform: scale(0.95);
+}
+
+.task-expanded {
+  position: fixed;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+  width: 90vw;
+  max-width: 1000px;
+  height: 90vh;
+  max-height: 800px;
+  z-index: 20;
+  background-color: var(--color-pop);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.task-expanded .closed-task-only {
+  display: none;
+}
+
+.task-expanded h3 {
+  font-size: 3rem;
+  text-overflow: clip;
+}
+
+.task-expanded p {
+  font-size: 1.2rem;
+  text-overflow: clip;
+}
+
+.task-expanded-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color);
+  z-index: 15;
+  opacity: 0.5;
 }
 
 @media only screen and (max-width: 750px) {

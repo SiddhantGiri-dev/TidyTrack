@@ -51,6 +51,14 @@ const deleteTodo = (clickedDeleteBtn) => {
   Todo.renderAll(tasksContainer, false);
 };
 
+const openTodo = (todoElement) => {
+  Todo.open(todoElement);
+};
+
+const closeTodo = (todoElement) => {
+  Todo.close(todoElement);
+};
+
 // **operations**
 // Adding Todos
 addBtn.addEventListener("click", insertTodo);
@@ -67,5 +75,20 @@ tasksContainer.addEventListener("click", (e) => {
   // Deleting a todo
   if (element.matches(".btn-delete")) {
     deleteTodo(element);
+  }
+
+  // Marking a todo as done (putting this before the details opening else if bock prevents the unexpected behavious of opening of the details of todo after clicking hhe checkbox in the todo)
+  else if (element.matches("input[type='checkbox']")) {
+    console.log("Behavious prevented!");
+  }
+
+  // Opening the details of a todo
+  else if (element.matches(".btn-details") || element.matches(".task") || element.matches(".task *")) {
+    openTodo(element.closest(".task-base"));
+  }
+
+  // closing the details of a todo
+  else if (element.matches(".btn-close-task")) {
+    closeTodo(element.closest(".task-base"));
   }
 });

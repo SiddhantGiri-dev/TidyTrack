@@ -26,16 +26,22 @@ export class Todo {
   static renderOne(todo, index, insertContainer, playAnimation, delay) {
     const element = document.createElement("div");
 
+    element.classList.add("task-base");
     element.classList.add("task");
     element.title = "Drag to change order";
-    element.innerHTML = `<input type="checkbox" title="Mark as done" />
+    element.innerHTML = `<input type="checkbox" class="closed-task-only" title="Mark as done" />
+    <button class="btn-close-task open-task-only">
+    <span></span>
+    <span></span>
+    </button>
     <h3>${todo.title}</h3>
     <p>
     ${todo.details}
     </p>
     <div class="btns-container">
-    <button class="button-round btn-details">&#128462; Details</button>
-    <button class="button-round btn-delete" data-delete="${index}">&#128462; Delete</button>
+    <button class="button-round btn-details closed-task-only">&#128462; Details</button>
+    <button class="button-round btn-delete" data-delete="${index}">&#128465; Delete</button>
+    <button class="button-round btn-mark-done open-task-only">&check; Mark as done</button>
     </div>`;
 
     // animation's implementation
@@ -82,5 +88,25 @@ export class Todo {
   static deleteOne(index) {
     // updating the local todos while deleting the todo item so that
     todos = deleteTodo(index);
+  }
+
+  static open(todoElement) {
+    // opening the todo element
+    todoElement.classList.add("task-expanded");
+    todoElement.classList.remove("task");
+
+    // adding the dark background behind the opened todo element to ensure user doesn't click something bhind it attidently
+    const taskExpandedBg = document.createElement("div");
+    taskExpandedBg.classList.add("task-expanded-bg");
+    todoElement.insertAdjacentElement("afterend", taskExpandedBg);
+  }
+
+  static close(todoElement) {
+    // removing the dark background behind the opened todo element
+    document.querySelector(".task-expanded-bg").remove();
+
+    // closing the todo element
+    todoElement.classList.add("task");
+    todoElement.classList.remove("task-expanded");
   }
 }
