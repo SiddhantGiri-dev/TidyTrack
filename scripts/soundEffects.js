@@ -6,3 +6,13 @@ export const playfulPop = (callback) => {
     callback();
   }
 };
+
+export const successTing = (callback) => {
+  new Audio("/assets/sounds/success.mp3").play();
+
+  // running the callback function (if provided) after playing the sound effect
+  if (callback) {
+    callback();
+  }
+};
+

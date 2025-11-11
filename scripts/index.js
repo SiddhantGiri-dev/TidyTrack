@@ -3,7 +3,7 @@
 // **Modules**
 import { Todo } from "./Todo.js";
 import { mainInpAnim } from "./dynamicStyles/dynamicStylesMain.js";
-import { playfulPop } from "./soundEffects.js";
+import { playfulPop, successTing } from "./soundEffects.js";
 
 // **DOM elements**
 const mainInp = document.getElementById("main-input");
@@ -67,6 +67,11 @@ mainInp.addEventListener("keydown", (e) => {
     insertTodo();
   }
 });
+detailsInp.addEventListener("keydown", (e) => {
+  if (e.code == "Enter" && mainInp.value.trim()) {
+    insertTodo();
+  }
+});
 
 // Actions on Todos
 tasksContainer.addEventListener("click", (e) => {
@@ -79,16 +84,20 @@ tasksContainer.addEventListener("click", (e) => {
 
   // Marking a todo as done (putting this before the details opening else if bock prevents the unexpected behavious of opening of the details of todo after clicking hhe checkbox in the todo)
   else if (element.matches("input[type='checkbox']")) {
-    console.log("Behavious prevented!");
   }
 
   // Opening the details of a todo
-  else if (element.matches(".btn-details") || element.matches(".task") || element.matches(".task *")) {
+  else if (element.matches(".btn-details")) {
     openTodo(element.closest(".task-base"));
   }
 
   // closing the details of a todo
   else if (element.matches(".btn-close-task")) {
     closeTodo(element.closest(".task-base"));
+  }
+
+  // checking off a todo
+  else if (element.matches(`.task input[type="checkbox"]`)) {
+    successTing(() => console.log("Executed"));
   }
 });
