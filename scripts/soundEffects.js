@@ -8,7 +8,10 @@ export const playfulPop = (callback) => {
 };
 
 export const successTing = (callback) => {
-  new Audio("/assets/sounds/success.mp3").play();
+  const sound = new Audio("/assets/sounds/success.mp3");
+
+  sound.volume = 0.3;
+  sound.play();
 
   // running the callback function (if provided) after playing the sound effect
   if (callback) {

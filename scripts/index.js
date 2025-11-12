@@ -81,11 +81,6 @@ tasksContainer.addEventListener("click", (e) => {
   if (element.matches(".btn-delete")) {
     deleteTodo(element);
   }
-
-  // Marking a todo as done (putting this before the details opening else if bock prevents the unexpected behavious of opening of the details of todo after clicking hhe checkbox in the todo)
-  else if (element.matches("input[type='checkbox']")) {
-  }
-
   // Opening the details of a todo
   else if (element.matches(".btn-details")) {
     openTodo(element.closest(".task-base"));
@@ -98,6 +93,6 @@ tasksContainer.addEventListener("click", (e) => {
 
   // checking off a todo
   else if (element.matches(`.task input[type="checkbox"]`)) {
-    successTing(() => console.log("Executed"));
+    successTing();
   }
 });
