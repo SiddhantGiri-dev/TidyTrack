@@ -42,3 +42,5 @@
 ```
 
 3. **Using event bubbling to listen for an event on multiple elements via their parent:** When we're making dynamic UIs, elements are conditionally added and removed from the DOM. Attaching event listeners to each of them is inefficient. Instead, we can attach a single listener to the parent and check _event.target_ to know exactly on what element was the event triggered.
+
+4. **Planning:** This one isn't technical but it's important. You should always plan what you're going to build before hand, expecially if it's a serious project.
