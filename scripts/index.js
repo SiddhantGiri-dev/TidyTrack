@@ -92,7 +92,7 @@ tasksContainer.addEventListener("click", (e) => {
   }
 
   // checking off a todo
-  else if (element.matches(`.task input[type="checkbox"]`)) {
+  else if (element.matches(`.task input[type="checkbox"]`) || element.matches(`.task-base .btn-mark-done`)) {
     successTing();
   }
 });
