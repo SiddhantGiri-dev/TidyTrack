@@ -1,22 +1,31 @@
-import allTodos, { addTodo, deleteTodo } from "./data.js";
+import allTodos, {
+  addTodo,
+  deleteTodo,
+  completedTodos,
+  markAsDone,
+} from "./data.js";
 import { animateTodo } from "./dynamicStyles/dynamicStylesMain.js";
 
-let todos = allTodos;
+let lists = {
+  todos: allTodos,
+  checkedTodos: completedTodos,
+};
 
 export class Todo {
   constructor(title, details) {
     this.todoData = {
       title,
       details,
+      checked: false,
       subTodos: [],
     };
 
     // updating the localstorage and the local todos array:
-    todos = addTodo(this);
+    lists.todos = addTodo(this);
   }
 
   static get length() {
-    return todos.length;
+    return lists.todos.length;
   }
 
   static set length(len) {
@@ -29,20 +38,37 @@ export class Todo {
     element.classList.add("task-base");
     element.classList.add("task");
     element.title = "Drag to change order";
-    element.innerHTML = `<input type="checkbox" class="closed-task-only" title="Mark as done" />
-    <button class="btn-close-task open-task-only">
-    <span></span>
-    <span></span>
-    </button>
-    <h3>${todo.title}</h3>
-    <p>
-    ${todo.details}
-    </p>
-    <div class="btns-container">
-    <button class="button-round btn-details closed-task-only">&#128462; Details</button>
-    <button class="button-round btn-delete" data-delete="${index}">&#128465; Delete</button>
-    <button class="button-round btn-mark-done open-task-only">&check; Mark as done</button>
-    </div>`;
+    element.dataset.index = index;
+
+    if (todo.checked) {
+      element.innerHTML = `
+      <button class="btn-close-task open-task-only">
+      <span></span>
+      <span></span>
+      </button>
+      <h3>${todo.title}</h3>
+      <p>
+      ${todo.details}
+      </p>
+      <div class="btns-container">
+      <button class="button-round btn-details closed-task-only">&#128462; Details</button>
+      </div>`;
+    } else {
+      element.innerHTML = `<input type="checkbox" class="closed-task-only" title="Mark as done" />
+      <button class="btn-close-task open-task-only">
+      <span></span>
+      <span></span>
+      </button>
+      <h3>${todo.title}</h3>
+      <p>
+      ${todo.details}
+      </p>
+      <div class="btns-container">
+      <button class="button-round btn-details closed-task-only">&#128462; Details</button>
+      <button class="button-round btn-delete" data-delete="${index}">&#128465; Delete</button>
+      <button class="button-round btn-mark-done open-task-only">&check; Mark as done</button>
+      </div>`;
+    }
 
     // animation's implementation
     if (playAnimation) {
@@ -53,41 +79,61 @@ export class Todo {
     insertContainer.insertAdjacentElement("afterbegin", element);
   }
 
-  static renderAll(insertContainer, playAnimation) {
-    // enptying the todos container
-    insertContainer.innerHTML = "";
+  static renderAll(todosRenderContainer, checkedTodosContainer, playAnimation) {
+    if (todosRenderContainer) {
+      // enptying the todos container
+      todosRenderContainer.innerHTML = "";
 
-    // rendering the todos
-    todos.forEach((todo, index) => {
-      const animationDelay = playAnimation
-        ? (todos.length - 1 - index) * 100
-        : 0;
+      // rendering the todos
+      lists.todos.forEach((todo, index) => {
+        const animationDelay = playAnimation
+          ? (lists.todos.length - 1 - index) * 100
+          : 0;
 
-      // Render delay logic:
-      /*
+        // Render delay logic:
+        /*
         In the above code, render delay is ((todos.length - 1) - index) * 100 (if the playAnimation flag is true)
         This is done so that elements at the top (which have the highest index) appear first.
         (todos.length - 1) gives the highest index.
-
+        
         So, let's say we have 3 elements in the arry, meaning, 2 is the highest index:
         2 (highest index) - 0 (current index) = 2 (so, the renderDelay value will be 200)
         2                 - 1                 = 1 (so, the renderDelay value will be 100)
         2                 - 2                 = 0 (so, there will be no delay in the render of the element with highest index)
-      */
+        */
 
-      Todo.renderOne(
-        todo,
-        index,
-        insertContainer,
-        playAnimation,
-        animationDelay
-      );
-    });
+        Todo.renderOne(
+          todo,
+          index,
+          todosRenderContainer,
+          playAnimation,
+          animationDelay
+        );
+      });
+    } else if (checkedTodosContainer) {
+      // enptying the todos container
+      checkedTodosContainer.innerHTML = "";
+
+      // rendering the todos
+      lists.checkedTodos.forEach((todo, index) => {
+        const animationDelay = playAnimation
+          ? (lists.todos.length - 1 - index) * 100
+          : 0;
+
+        Todo.renderOne(
+          todo,
+          index,
+          checkedTodosContainer,
+          playAnimation,
+          animationDelay
+        );
+      });
+    }
   }
 
   static deleteOne(index) {
     // updating the local todos while deleting the todo item so that
-    todos = deleteTodo(index);
+    lists.todos = deleteTodo(index);
   }
 
   static open(todoElement) {
@@ -108,5 +154,12 @@ export class Todo {
     // closing the todo element
     todoElement.classList.add("task");
     todoElement.classList.remove("task-expanded");
+  }
+
+  static markAsDone(index) {
+    const result = markAsDone(index);
+
+    lists.todos = result.todos;
+    lists.checkedTodos = result.completedTodos;
   }
 }

@@ -123,6 +123,8 @@ main h1 {
 
 #completed-tasks-container {
   min-height: 60vh;
+  width: 100vw;
+  padding: 25px 15px;
 }
 
 #completed-tasks-container span {
