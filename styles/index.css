@@ -59,6 +59,7 @@ main h1 {
   justify-self: start;
   width: 100%;
   grid-area: inp;
+  background-color: transparent;
 }
 
 #main-input::placeholder {
@@ -85,6 +86,7 @@ main h1 {
   width: 100%;
   grid-area: details;
   font-size: 0.8rem;
+  background-color: transparent;
 }
 
 #details-input::placeholder {
