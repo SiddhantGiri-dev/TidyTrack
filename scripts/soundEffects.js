@@ -18,4 +18,3 @@ export const successTing = (callback) => {
     callback();
   }
 };
-

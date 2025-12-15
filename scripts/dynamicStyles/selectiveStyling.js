@@ -1,4 +1,4 @@
-import previousTodos, { todosChange } from "../data.js";
+import previousTodos, { todosChange, completedTodos } from "../data.js";
 
 const nonZeroTasksStyleElements = Array.from(
   document.querySelectorAll("[data-nonzerotasksclass]")
@@ -8,8 +8,8 @@ const zeroTasksStyleElements = Array.from(
 );
 
 // Main styles selector function
-function setupStyling(todosLength) {
-  if (todosLength > 0) {
+function setupStyling(todosLength, completedTodosLength) {
+  if (todosLength > 0 || completedTodosLength > 0) {
     // If, there are previously added tasks
 
     nonZeroTasksStyleElements.forEach((element) => {
@@ -34,10 +34,10 @@ function setupStyling(todosLength) {
 
 // calling the main styles selector every time the todos change
 todosChange.addEventListener("todosChange", (e) => {
-  setupStyling(e.details.length);
+  setupStyling(e.details.length, e.details.completedTodosLength);
 });
 
 export default function () {
   // calling the main styles selector funciton once initially
-  setupStyling(previousTodos.length);
+  setupStyling(previousTodos.length, completedTodos.length);
 }

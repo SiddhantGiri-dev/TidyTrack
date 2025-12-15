@@ -36,8 +36,9 @@ export const todosChange = new EventTarget();
 
 // todoChange event data class:
 class TodosChangeEventData {
-  constructor(length) {
+  constructor(length, completedTodosLength) {
     this.length = length;
+    this.completedTodosLength = completedTodosLength;
   }
 }
 
@@ -48,7 +49,7 @@ export const addTodo = (todo) => {
   save(TODOS_KEY, todos);
   
   // triggering the todosChangeEvent:
-  todosChangeEvent.details = new TodosChangeEventData(todos.length);
+  todosChangeEvent.details = new TodosChangeEventData(todos.length, completedTodos.length);
   todosChange.dispatchEvent(todosChangeEvent);
 
   return todos;
@@ -60,7 +61,7 @@ export const deleteTodo = (index) => {
   save(TODOS_KEY, todos);
 
   // triggering the todosChangeEvent:
-  todosChangeEvent.details = new TodosChangeEventData(todos.length);
+  todosChangeEvent.details = new TodosChangeEventData(todos.length, completedTodos.length);
   todosChange.dispatchEvent(todosChangeEvent);
 
   return todos;
@@ -77,7 +78,7 @@ export const markAsDone = (index) => {
   save(COMPLETED_TODOS_KEY, completedTodos);
 
   // triggering the todosChangeEvent:
-  todosChangeEvent.details = new TodosChangeEventData(todos.length);
+  todosChangeEvent.details = new TodosChangeEventData(todos.length, completedTodos.length);
   todosChange.dispatchEvent(todosChangeEvent);
 
   return {todos, completedTodos}

@@ -10,7 +10,9 @@ const mainInp = document.getElementById("main-input");
 const addBtn = document.getElementById("add-task-btn");
 const tasksContainer = document.getElementById("tasks-container");
 const detailsInp = document.getElementById("details-input");
-const completedTasksContainer = document.getElementById("completed-tasks-container");
+const completedTasksContainer = document.getElementById(
+  "completed-tasks-container"
+);
 
 // **Startup tasks**
 // setting up the mainInput animation
@@ -64,7 +66,9 @@ const markAsDone = (todoElement) => {
   const index = todoElement.dataset.index;
 
   // styling effects:
-  Array.from(todoElement.querySelectorAll("p, h3")).forEach((text) => text.style.textDecoration = "line-through");
+  Array.from(todoElement.querySelectorAll("p, h3")).forEach(
+    (text) => (text.style.textDecoration = "line-through")
+  );
   todoElement.style.backgroundColor = "var(--success)";
 
   // updating the local storage
@@ -74,8 +78,8 @@ const markAsDone = (todoElement) => {
   todoElement.remove();
 
   // Rendering the checked todos
-  Todo.renderAll(null, completedTasksContainer, false);
-}
+  Todo.renderAll(tasksContainer, completedTasksContainer, false);
+};
 
 // **operations**
 // Adding Todos
@@ -110,7 +114,10 @@ tasksContainer.addEventListener("click", (e) => {
   }
 
   // checking off a todo
-  else if (element.matches(`.task input[type="checkbox"]`) || element.matches(`.task-base .btn-mark-done`)) {
+  else if (
+    element.matches(`.task input[type="checkbox"]`) ||
+    element.matches(`.task-base .btn-mark-done`)
+  ) {
     setTimeout(() => {
       successTing(() => {
         markAsDone(element.closest(".task-base"));

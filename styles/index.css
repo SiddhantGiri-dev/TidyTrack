@@ -29,6 +29,8 @@ main h1 {
   animation-name: bottom-to-top;
   animation-duration: 0.5s;
   animation-iteration-count: 1;
+  
+  text-align: center;
 }
 
 #main-inp-container {
@@ -119,6 +121,22 @@ main h1 {
 #tasks-container {
   width: 100vw;
   padding: 25px 15px;
+  position: relative;
+}
+
+#tasks-container .zero-tasks-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#tasks-container .zero-tasks-msg span {
+  text-align: center;
 }
 
 #completed-tasks-container {
@@ -127,12 +145,13 @@ main h1 {
   padding: 25px 15px;
 }
 
-#completed-tasks-container span {
+#completed-tasks-container > span {
   font-size: 1.7rem;
   font-weight: 600;
   margin-top: 10px;
+  text-align: center;
 }
 
-#completed-tasks-container img {
+#completed-tasks-container > img {
   width: 100px;
 }
