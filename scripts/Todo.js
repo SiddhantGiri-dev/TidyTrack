@@ -89,14 +89,13 @@ export class Todo {
       todosRenderContainer.innerHTML = "";
 
       // rendering the todos
-      if (lists.todos.length > 0) {
-        lists.todos.forEach((todo, index) => {
-          const animationDelay = playAnimation
-            ? (lists.todos.length - 1 - index) * 100
-            : 0;
+      lists.todos.forEach((todo, index) => {
+        const animationDelay = playAnimation
+          ? (lists.todos.length - 1 - index) * 100
+          : 0;
 
-          // Render delay logic:
-          /*
+        // Render delay logic:
+        /*
           In the above code, render delay is ((todos.length - 1) - index) * 100 (if the playAnimation flag is true)
           This is done so that elements at the top (which have the highest index) appear first.
         (todos.length - 1) gives the highest index.
@@ -107,22 +106,14 @@ export class Todo {
         2                 - 2                 = 0 (so, there will be no delay in the render of the element with highest index)
         */
 
-          Todo.renderOne(
-            todo,
-            index,
-            todosRenderContainer,
-            playAnimation,
-            animationDelay
-          );
-        });
-      } else {
-        todosRenderContainer.innerHTML = `
-          <div class="zero-tasks-msg">
-            <span>😊</span>
-            <span>All tasks complete!</span>
-          </div>
-        `;
-      }
+        Todo.renderOne(
+          todo,
+          index,
+          todosRenderContainer,
+          playAnimation,
+          animationDelay
+        );
+      });
     }
 
     if (checkedTodosRenderContainer) {
@@ -130,29 +121,19 @@ export class Todo {
       checkedTodosRenderContainer.innerHTML = "";
 
       // rendering the todos
-      if (lists.checkedTodos.length > 0) {
-        lists.checkedTodos.forEach((todo, index) => {
-          const animationDelay = playAnimation
-            ? (lists.todos.length - 1 - index) * 100
-            : 0;
+      lists.checkedTodos.forEach((todo, index) => {
+        const animationDelay = playAnimation
+          ? (lists.todos.length - 1 - index) * 100
+          : 0;
 
-          Todo.renderOne(
-            todo,
-            index,
-            checkedTodosRenderContainer,
-            playAnimation,
-            animationDelay
-          );
-        });
-      } else {
-        checkedTodosRenderContainer.innerHTML = `
-            <img
-              src="./assets/images/penguin.svg"
-              alt="No tasks completed yet"
-            />
-            <span>Nothing to show here yet...</span>
-        `;
-      }
+        Todo.renderOne(
+          todo,
+          index,
+          checkedTodosRenderContainer,
+          playAnimation,
+          animationDelay
+        );
+      });
     }
   }
 

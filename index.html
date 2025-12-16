@@ -16,12 +16,12 @@
     </header>
     <main
       class="flex flex-col items-center"
-      data-nonzerotasksclass="non-zero-tasks-main"
+      data-post-initialization-class="non-zero-tasks-main"
     >
-      <h1 data-nonzerotasksclass="hidden">What's first on the list?</h1>
+      <h1 data-post-initialization-class="hidden">What's first on the list?</h1>
       <label
         id="main-inp-container"
-        data-nonzerotasksclass="non-zero-tasks-main-inp-container"
+        data-post-initialization-class="non-zero-tasks-main-inp-container"
         for="main-input"
         class="flex flex-col"
       >
@@ -44,7 +44,7 @@
           <span>+</span> Add
         </button>
       </label>
-      <div class="tabs-container" data-zerotasksclass="hidden">
+      <div class="tabs-container" data-pre-initialization-class="hidden">
         <ul class="tabs">
           <li data-tabnum="1" class="tab-active">Tasks</li>
           <li data-tabnum="2">Completed</li>
@@ -53,20 +53,16 @@
           <div
             id="tasks-container"
             data-tabnum="1"
-            data-nonzerotasksclass="non-zero-tasks-container"
+            data-post-initialization-class="non-zero-tasks-container"
+            data-zero-todos-class="tasks-complete-bg"
             class="task-list"
           >
           </div>
           <div
-            class="flex flex-col items-center justify-center tasks-container"
+            class="flex flex-col items-center justify-center tasks-container task-list"
             id="completed-tasks-container"
             data-tabnum="2"
           >
-            <img
-              src="./assets/images/penguin.svg"
-              alt="No tasks completed yet"
-            />
-            <span>Nothing to show here yet..</span>
           </div>
         </div>
       </div>
