@@ -1,0 +1,18 @@
+@import "./utils.css";
+@import "./navbar.css";
+
+h1 {
+  font-size: 1.5rem;
+}
+
+main {
+  width: 85%;
+  margin: 40px auto;
+}
+
+select {
+  background-color: var(--color-pop);
+  width: 150px;
+  font-size: 1.25rem;
+  margin-top: 15px;
+}

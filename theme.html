@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/themePage.css" />
+    <title>Theme</title>
+  </head>
+  <body>
+    <header class="flex">
+      <a href="/" class="header-logo items-center flex">
+        <img src="./assets/images/logo.png" alt="TidyTrack" />
+        <span class="font-em">TidyTrack</span>
+      </a>
+      <div class="hamburger" onclick="toggleNav(this)">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav>
+        <a href="/" class="header-logo flex items-center">
+          <img src="./assets/images/logo.png" alt="TidyTrack" />
+          <span class="font-em">TidyTrack</span>
+        </a>
+        <ul>
+          <li>
+            <a href="/">
+              <i class="fa-solid fa-list-check"></i>
+              <span>Todo List</span>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <i class="fa-solid fa-clock"></i>
+              <span>Pomodoro Timer</span>
+            </a>
+          </li>
+          <li>
+            <a href="" class="link-active">
+              <i class="fa-solid fa-palette"></i>
+              <span>Theme</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Change Color Theme</h1>
+      <select name="theme" id="selectTheme">
+        <option value="light" selected>Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </main>
+
+    <script type="module" src="./scripts/globals.js"></script>
+    <script src="./scripts/navbar.js"></script>
+    <script type="module" src="./scripts/themePage.js"></script>
+  </body>
+</html>

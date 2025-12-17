@@ -47,9 +47,12 @@ export const addTodo = (todo) => {
   todos.push(todo.todoData);
 
   save(TODOS_KEY, todos);
-  
+
   // triggering the todosChangeEvent:
-  todosChangeEvent.details = new TodosChangeEventData(todos.length, completedTodos.length);
+  todosChangeEvent.details = new TodosChangeEventData(
+    todos.length,
+    completedTodos.length
+  );
   todosChange.dispatchEvent(todosChangeEvent);
 
   return todos;
@@ -61,7 +64,10 @@ export const deleteTodo = (index) => {
   save(TODOS_KEY, todos);
 
   // triggering the todosChangeEvent:
-  todosChangeEvent.details = new TodosChangeEventData(todos.length, completedTodos.length);
+  todosChangeEvent.details = new TodosChangeEventData(
+    todos.length,
+    completedTodos.length
+  );
   todosChange.dispatchEvent(todosChangeEvent);
 
   return todos;
@@ -78,11 +84,14 @@ export const markAsDone = (index) => {
   save(COMPLETED_TODOS_KEY, completedTodos);
 
   // triggering the todosChangeEvent:
-  todosChangeEvent.details = new TodosChangeEventData(todos.length, completedTodos.length);
+  todosChangeEvent.details = new TodosChangeEventData(
+    todos.length,
+    completedTodos.length
+  );
   todosChange.dispatchEvent(todosChangeEvent);
 
-  return {todos, completedTodos}
+  return { todos, completedTodos };
 };
 
-export {completedTodos};
+export { completedTodos };
 export default todos;
