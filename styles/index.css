@@ -1,20 +1,6 @@
 @import "./utils.css";
+@import "./navbar.css";
 @import "./tasks.css";
-
-header {
-  padding: 0.7rem 1.3rem;
-  min-height: 50px;
-  height: 10vh;
-}
-
-.header-logo {
-  text-decoration: none;
-  gap: 5px;
-}
-
-.header-logo img {
-  width: 2rem;
-}
 
 main {
   height: 80vh;
@@ -122,6 +108,7 @@ main h1 {
   width: 100vw;
   padding: 25px 15px;
   position: relative;
+  padding-bottom: 100px;
 }
 
 #tasks-container .zero-tasks-msg {
@@ -143,6 +130,7 @@ main h1 {
   min-height: 60vh;
   width: 100vw;
   padding: 25px 15px;
+  padding-bottom: 100px
 }
 
 #completed-tasks-container > span {

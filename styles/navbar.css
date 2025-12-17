@@ -1,0 +1,97 @@
+header {
+  padding: 0.7rem 1.3rem;
+  min-height: 50px;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  text-decoration: none;
+  gap: 5px;
+}
+
+.header-logo img {
+  width: 2rem;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--color-sub-text);
+}
+
+.hamburger:hover span {
+  background-color: var(--color-primary);
+}
+
+.hamburger-active span {
+    background-color: var(--color-primary);
+}
+
+header nav {
+  position: fixed;
+  top: -6px;
+  left: -100%;
+  padding: 0.7rem 1.3rem;
+  height: 100vh;
+  width: 80vw;
+  max-width: 250px;
+  background-color: var(--color-pop);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  transition: 0.3s all;
+  z-index: 10;
+}
+
+.nav-active {
+    left: 0;
+}
+
+header nav ul {
+  list-style-type: none;
+}
+
+header nav ul li a {
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    margin: 5px 0;
+    border-radius: 15px;
+}
+
+header nav ul li a:hover {
+    background-color: var(--bg);
+}
+
+header nav ul li a:hover span,
+header nav ul li a:hover i {
+    color: var(--color-primary);
+}
+
+.link-active {
+    background-color: var(--bg);
+}
+
+.link-active span,
+.link-active i {
+    color: var(--color-primary);
+}
+
+@media screen and (max-width: 460px) {
+    header nav {
+        max-width: 300px;
+    }
+}
